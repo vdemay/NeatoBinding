@@ -70,7 +70,7 @@ public class NeatoState {
 
     public String getError() {
 
-        if (!error.equalsIgnoreCase("ui_alert_invalid")) {
+        if (error != null && !error.equalsIgnoreCase("ui_alert_invalid")) {
             return error;
         } else {
             return "";
