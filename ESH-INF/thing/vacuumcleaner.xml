@@ -60,7 +60,7 @@
 			
 			<parameter name="vendor" type="text" required="true">
                 <label>Vendor</label>
-                <description>Possible values are Neator or Vorwerk</description>
+                <description>Possible values are Neato or Vorwerk</description>
                 <default>Neato</default>
             </parameter>
 
