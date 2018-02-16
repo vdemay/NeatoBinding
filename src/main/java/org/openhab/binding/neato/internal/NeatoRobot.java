@@ -123,7 +123,7 @@ public class NeatoRobot {
         String body = "";
 
         if (command.toString().equalsIgnoreCase("clean")) {
-            body = "{\"reqId\": \"1\", \"cmd\": \"startCleaning\", \"params\": { \"category\": 2, \"mode\": 2, \"modifier\": 2}}";
+            body = "{\"reqId\": \"1\", \"cmd\": \"startCleaning\", \"params\": { \"category\": 3, \"mode\": 1, \"modifier\": 1, \"navigationMode\":1,\"spotWidth\":200,\"spotHeight\":200}}";
         } else if (command.toString().equalsIgnoreCase("pause")) {
             body = "{\"reqId\": \"1\", \"cmd\": \"pauseCleaning\"}";
         } else if (command.toString().equalsIgnoreCase("stop")) {
@@ -195,6 +195,11 @@ public class NeatoRobot {
     }
 
     public Boolean sendGetGeneralInfo() throws Exception {
+
+        if (state.getAvailableServices() == null) {
+            logger.warn("Cannot get services from state - no Robot find?");
+            return false;
+        }
 
         if (state.getAvailableServices().getGeneralInfo() == "basic-1"
                 || state.getAvailableServices().getGeneralInfo() == "advanced-1") {
