@@ -18,12 +18,11 @@ package org.openhab.binding.neato.internal;
 public class VendorFactory {
 
     public static Vendor createVendor(String name) {
-        if ((name == null) || name.toLowerCase().equals(VendorNeato.getVendorName()) || name.equals("")) {
-            return new VendorNeato();
-        }
-
         if ((name != null) && name.toLowerCase().equals(VendorVorwerk.getVendorName())) {
             return new VendorVorwerk();
+        }
+        if ((name == null) || name.toLowerCase().equals(VendorNeato.getVendorName()) || name.equals("")) {
+            return new VendorNeato();
         }
         return null;
     }

@@ -186,12 +186,8 @@ public class NeatoAccountDiscoveryService extends AbstractDiscoveryService {
         properties.put(NeatoBindingConstants.CONFIG_VENDOR, vendor.toString());
 
         DiscoveryResult discoveryResult;
-
-        if (properties != null) {
-            discoveryResult = DiscoveryResultBuilder.create(thingUID).withProperties(properties).build();
-
-            thingDiscovered(discoveryResult);
-        }
+        discoveryResult = DiscoveryResultBuilder.create(thingUID).withProperties(properties).build();
+        thingDiscovered(discoveryResult);
     }
 
     @Override

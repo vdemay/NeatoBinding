@@ -42,8 +42,6 @@ public class NeatoRobot {
 
     private final Logger logger = LoggerFactory.getLogger(NeatoRobot.class);
 
-    private static final String HTTP_ACCEPT = "application/vnd.neato.nucleo.v1";
-
     private String serialNumber;
     private String secret;
     private String name;
