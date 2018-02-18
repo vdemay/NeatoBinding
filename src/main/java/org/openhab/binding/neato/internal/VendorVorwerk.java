@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014-2016 by the respective copyright holders.
+ * Copyright (c) 2010-2018 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -25,6 +25,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -32,6 +34,8 @@ import org.apache.commons.io.IOUtils;
  *
  */
 public class VendorVorwerk extends Vendor {
+
+    private final Logger logger = LoggerFactory.getLogger(VendorVorwerk.class);
 
     private static final String BEEHIVE_URL = "https://vorwerk-beehive-production.herokuapp.com";
     private static final String NUCLEO_URL = "https://nucleo.ksecosys.com";
@@ -94,21 +98,9 @@ public class VendorVorwerk extends Vendor {
             SSLContext sslctx = SSLContext.getInstance("SSL");
             sslctx.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
             connection.setSSLSocketFactory(sslctx.getSocketFactory());
-        } catch (KeyStoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (CertificateException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (KeyManagementException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException
+                | KeyManagementException e) {
+            logger.error("failed to configure ssl", e);
         }
     }
 }

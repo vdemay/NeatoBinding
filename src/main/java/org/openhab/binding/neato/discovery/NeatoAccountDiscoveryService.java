@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014-2016 by the respective copyright holders.
+ * Copyright (c) 2010-2018 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -26,7 +26,6 @@ import org.eclipse.smarthome.config.discovery.DiscoveryResultBuilder;
 import org.eclipse.smarthome.core.thing.ThingUID;
 import org.eclipse.smarthome.io.net.http.HttpUtil;
 import org.openhab.binding.neato.NeatoBindingConstants;
-import org.openhab.binding.neato.handler.NeatoHandler;
 import org.openhab.binding.neato.internal.NeatoHandlerFactory;
 import org.openhab.binding.neato.internal.Vendor;
 import org.openhab.binding.neato.internal.VendorFactory;
@@ -45,7 +44,7 @@ import com.google.gson.Gson;
  */
 public class NeatoAccountDiscoveryService extends AbstractDiscoveryService {
 
-    private final Logger logger = LoggerFactory.getLogger(NeatoHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(NeatoAccountDiscoveryService.class);
 
     private static final int TIMEOUT = 15;
     private SecureRandom random = new SecureRandom();
@@ -78,11 +77,9 @@ public class NeatoAccountDiscoveryService extends AbstractDiscoveryService {
             logger.info(resultString);
 
         } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot authenticate", e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot authenticate", e);
         }
         return resultString;
     }
@@ -95,8 +92,7 @@ public class NeatoAccountDiscoveryService extends AbstractDiscoveryService {
                     + "\", \"os\": \"ios\", \"token\": \"" + new BigInteger(130, random).toString(64).getBytes("UTF-8")
                     + "\"}";
         } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot authenticate", e);
             return false;
         }
 
@@ -141,11 +137,9 @@ public class NeatoAccountDiscoveryService extends AbstractDiscoveryService {
                 addThing(mrRobot, vendor);
             }
         } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot get robot info", e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot get robot info", e);
         }
 
         return true;

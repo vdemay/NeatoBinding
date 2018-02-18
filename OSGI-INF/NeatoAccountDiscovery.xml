@@ -10,8 +10,8 @@
 
 -->
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.openhab.neato" activate="activate">
-   <implementation class="org.openhab.binding.neato.discovery.NeatoAccountDiscoveryService"/>
-   <service>
-      <provide interface="org.eclipse.smarthome.config.discovery.DiscoveryService"/>
-   </service>
+    <implementation class="org.openhab.binding.neato.discovery.NeatoAccountDiscoveryService"/>
+    <service>
+        <provide interface="org.eclipse.smarthome.config.discovery.DiscoveryService"/>
+    </service>
 </scr:component>

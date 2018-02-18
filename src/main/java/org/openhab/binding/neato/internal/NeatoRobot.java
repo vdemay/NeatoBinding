@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014-2016 by the respective copyright holders.
+ * Copyright (c) 2010-2018 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -22,7 +22,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.smarthome.core.types.Command;
-import org.openhab.binding.neato.handler.NeatoHandler;
 import org.openhab.binding.neato.internal.classes.NeatoGeneralInfo;
 import org.openhab.binding.neato.internal.classes.NeatoRobotInfo;
 import org.openhab.binding.neato.internal.classes.NeatoState;
@@ -41,7 +40,7 @@ import com.google.gson.Gson;
 
 public class NeatoRobot {
 
-    private final Logger logger = LoggerFactory.getLogger(NeatoHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(NeatoRobot.class);
 
     private static final String HTTP_ACCEPT = "application/vnd.neato.nucleo.v1";
 
