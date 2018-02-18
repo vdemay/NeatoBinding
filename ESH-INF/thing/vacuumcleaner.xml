@@ -60,10 +60,10 @@
 			</parameter>
 
 			<parameter name="vendor" type="text" required="true">
-                <label>Vendor</label>
-                <description>Possible values are Neato or Vorwerk</description>
-                <default>Neato</default>
-            </parameter>
+				<label>Vendor</label>
+				<description>Possible values are Neato or Vorwerk</description>
+				<default>Neato</default>
+			</parameter>
 
 		</config-description>
 	</thing-type>

@@ -6,7 +6,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.openhab.binding.neato.config;
+package org.openhab.binding.neato.internal.config;
 
 /**
  * Parameters used for bridge configuration.

@@ -145,8 +145,7 @@ public class NeatoHandler extends BaseThingHandler {
                 publishChannelIfLinked(channel.getUID());
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Cannot refresh state", e);
         }
     }
 
@@ -166,7 +165,7 @@ public class NeatoHandler extends BaseThingHandler {
             }
         };
 
-        this.refreshTask = scheduler.scheduleAtFixedRate(refresher, 0, refreshTime.intValue(), TimeUnit.SECONDS);
+        this.refreshTask = scheduler.scheduleWithFixedDelay(refresher, 0, refreshTime.intValue(), TimeUnit.SECONDS);
         logger.debug("Start automatic refresh at {} minutes", refreshTime.intValue());
     }
 
